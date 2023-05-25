@@ -1,59 +1,29 @@
 [//]: # (title: Ranges and progressions)
 
 Kotlin lets you easily create ranges of values using the [`.rangeTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-to.html)
-and [`.rangeUntil()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-until.html) extension functions from the 
-`kotlin.ranges` package.
+and [`.rangeUntil()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-until.html) functions from the 
+`kotlin.ranges` package. The easiest way to call these functions is by using their operator forms `..` and `..<` respectively.
 
-To create a closed-ended range, use the `.rangeTo()` extension function:
+To create a closed-ended range, call the `.rangeTo()` function with the `..` operator.
 
-```kotlin
-fun main() {
-    val i = 1 
-//sampleStart
-    if (i in 1.rangeTo(4)) { // equivalent to i >= 1 && i <= 4
-        print(i)
-        // 1
-    }
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-rangeto"}
+To create an open-ended range, call the `.rangeUntil()` function with the `..<` operator.
 
-To create an open-ended range, use the `.rangeUntil()` extension function:
-
-```kotlin
-fun main() { 
-//sampleStart
-    val i = 4 
-
-    if (i in 1.rangeTo(4)) { // equivalent to i >= 1 && i <= 4
-        print(i)
-        // 4
-    }
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-rangeuntil"}
-
-Use the `..` and `..<` operators as a more convenient way to call `.rangeTo()` and `.rangeUntil()` functions:
+For example:
 
 ```kotlin
 fun main() {
 //sampleStart
-    val i = 4
+    // Closed-ended range
+    println(4 in 1..4)
+    // true
     
-    if (i in 1..4) { // equivalent to i >= 1 && i <= 4
-        print(i)
-        // 4
-    }
-    println()
-    if (i in 1..<4) { // equivalent to i >= 1 && i < 4
-        print(i)      // 4 is not printed
-    }
+    // Open-ended range
+    println(4 in 1..<4)
+    // false
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-operators"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-rangeto-rangeuntil"}
 
 Ranges are particularly useful for iterating over `for` loops:
 
