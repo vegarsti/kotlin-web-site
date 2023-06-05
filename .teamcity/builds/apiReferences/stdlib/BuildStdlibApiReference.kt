@@ -10,7 +10,7 @@ object BuildStdlibApiReference : BuildType({
 
   dependencies {
     artifacts(AbsoluteId("Kotlin_KotlinRelease_1820_LibraryReferenceLatestDocs")) {
-      buildRule = lastPinned("+:*")
+      buildRule = sameChainOrLastFinished()
       cleanDestination = true
       artifactRules = "latest-version.zip"
     }
